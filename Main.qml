@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
 
+
 ApplicationWindow {
     width: 1400
     height: 700
@@ -9,6 +10,7 @@ ApplicationWindow {
     title: qsTr("Спортивный Клуб")
 
     Material.accent: Material.Blue
+
 
 
     SwipeView{

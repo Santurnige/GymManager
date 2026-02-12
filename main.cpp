@@ -2,22 +2,23 @@
 #include <QQmlApplicationEngine>
 #include<QFont>
 #include<QQmlContext>
-#include"header/traineritemsmodel.h"
+#include"header/gymbackend.h"
+#include<QObject>
+
+static QObject* backendProvider(QQmlEngine*, QJSEngine*)
+{
+    return new GymBackend();
+}
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+    //шрифт
     app.setFont(QFont("Georgia"));
 
+
     QQmlApplicationEngine engine;
-
-    TrainerItemsModel itemsModel;
-
-    itemsModel.addItem("Цатурян Александр Ваагнович","sasacaturan284@gmail.com","+79966325884");
-    itemsModel.addItem("Цатурян Ваня Ваагнович","зрув@gmail.com","+799652455884");
-    itemsModel.addItem("Цатурян Александр Ваагнович","sasacaturan284@gmail.com","+79966325884");
-    itemsModel.addItem("Цатурян Александр Ваагнович","sasacaturan284@gmail.com","+79966325884");
-
+    qmlRegisterSingletonType<GymBackend>("Gym.Backend",1,0,"GymBackend",backendProvider);
 
 
     QObject::connect(
@@ -26,9 +27,6 @@ int main(int argc, char *argv[])
         &app,
         []() { QCoreApplication::exit(-1); },
         Qt::QueuedConnection);
-
-    engine.rootContext()->setContextProperty("itemsModel", &itemsModel);
-
     engine.loadFromModule("GymManagement", "Main");
 
     return app.exec();

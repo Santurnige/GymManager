@@ -28,6 +28,8 @@ qt_add_qml_module(appGymManagement
         cpp/sqlmanager.cpp
         header/traineritemsmodel.h
         cpp/traineritemsmodel.cpp
+        header/gymbackend.h
+        cpp/gymbackend.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

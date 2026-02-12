@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Controls.Material
+import Gym.Backend 1.0
 
 Rectangle{
     color:"#F9FAFB"
@@ -58,7 +59,7 @@ Rectangle{
             spacing: 15
 
             Repeater {
-                model: itemsModel
+                model: GymBackend.trainerModel
 
                 delegate: TrainerElement {
                     itemName: name
