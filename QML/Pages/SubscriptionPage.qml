@@ -3,8 +3,5 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 
 Rectangle{
-    Text {
-        anchors.centerIn: parent
-        text: qsTr("tefdhgsrt666xt2")
-    }
+    color:"#F9FAFB"
 }

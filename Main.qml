@@ -3,10 +3,12 @@ import QtQuick.Controls
 import QtQuick.Controls.Material
 
 ApplicationWindow {
-    width: 950
-    height: 680
+    width: 1400
+    height: 700
     visible: true
     title: qsTr("Спортивный Клуб")
+
+    Material.accent: Material.Blue
 
 
     SwipeView{
@@ -22,8 +24,12 @@ ApplicationWindow {
     }
 
 
-     header: Column{
+     header:Rectangle{
          width:parent.width
+         color:"white"
+         Column{
+         anchors.fill: parent
+
         Rectangle{
             height:40
             width:parent.width
@@ -60,4 +66,5 @@ ApplicationWindow {
             }
         }
     }
+  }
 }
